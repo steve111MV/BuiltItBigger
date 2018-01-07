@@ -11,27 +11,40 @@ buildscript {
 }
 
 repositories {
-    jcenter();
+    jcenter()
 }
 
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'appengine'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
     appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.42'
+    //compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.42'
     compile 'com.google.appengine:appengine-endpoints:1.9.42'
     compile 'com.google.appengine:appengine-endpoints-deps:1.9.42'
+
     compile 'javax.servlet:servlet-api:2.5'
+
     compile 'com.google.api-client:google-api-client:1.23.0'
     compile 'com.google.http-client:google-http-client-android:1.23.0'
+
+    compile 'com.google.api-client:google-api-client-android:1.23.0'
+
+    compile project(':javajoke')
+
+    /*
+
+
+    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.34'
+    compile 'com.google.appengine:appengine-endpoints:1.9.34'
+    compile 'com.google.appengine:appengine-endpoints-deps:1.9.34'*/
 }
 
-appengine {
-    downloadSdk = true
+appengine {downloadSdk = true
     appcfg {
         oauth2 = true
     }

@@ -17,8 +17,8 @@ import javax.inject.Named;
         name = "myApi",
         version = "v1",
         namespace = @ApiNamespace(
-                ownerDomain = "backend.builditbigger.gradle.udacity.com",
-                ownerName = "backend.builditbigger.gradle.udacity.com",
+                ownerDomain = "backend.stevendende.cg",
+                ownerName = "backend.stevendende.cg",
                 packagePath = ""
         )
 )
@@ -29,6 +29,15 @@ public class MyEndpoint {
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
+
+        return response;
+    }
+
+    /** A simple endpoint method that takes a name and says Hi back */
+    @ApiMethod(name = "tellAJoke")
+    public MyBean tellAJoke() {
+        MyBean response = new MyBean();
+        response.setData("i have no joke" );
 
         return response;
     }

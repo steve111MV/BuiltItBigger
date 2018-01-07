@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+
+//apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
@@ -11,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
     }
     buildTypes {
         release {
@@ -22,7 +26,6 @@ android {
     productFlavors{
         // Specifies two flavor dimensions.
         flavorDimensions "tier"
-
 
         free {
             dimension "tier"
@@ -45,14 +48,20 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.1.0'
     //dependencies for the free version
 
-    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile 'com.google.android.gms:play-services-ads:10.0.0'
 
-    compile project(':javajoke')
+    //compile project(':backend')
+    //compile project(':backendz')
     compile project(':androidjokedisplay')
+    compile project(path: ':backend', configuration: 'android-endpoints')
+
+    compile 'com.google.http-client:google-http-client-android:1.23.0'
+    compile 'com.google.api-client:google-api-client:1.23.0'
 }
