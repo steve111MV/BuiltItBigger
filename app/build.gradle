@@ -59,20 +59,23 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.1.0'
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+
     //dependencies for the free version
-    compile 'com.google.android.gms:play-services-ads:10.0.0'
-    //compile project(':backend')
-    //compile project(':backendz')
-    compile project(path: ':javajoke')
-    compile project(path: ':androidjokedisplay')
-    //compile project(':javajoke')
-    compile project(path: ':backend', configuration: 'android-endpoints')
-    compile 'com.google.http-client:google-http-client-android:1.23.0'
-    compile 'com.google.api-client:google-api-client:1.23.0'
-    compile 'com.android.support:design:26.1.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:10.0.0'
+
+    implementation project(path: ':javajoke')
+    implementation project(path: ':androidjokedisplay')
+
+    //Compile endpoint module with android-endpoints
+    implementation project(path: ':backend', configuration: 'android-endpoints')
+
+    implementation 'com.google.http-client:google-http-client-android:1.23.0'
+    implementation 'com.google.api-client:google-api-client:1.23.0'
 }
