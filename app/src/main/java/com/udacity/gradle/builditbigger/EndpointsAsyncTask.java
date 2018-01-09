@@ -19,12 +19,12 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     private static MyApi myApiService = null;
     private Context context;
-    private CallbackInterface mCallback;
+    public CallbackInterface mCallback;
 
     /**
      * Interface definition for a callback to be invoked when reviews are loaded.
      */
-    interface CallbackInterface {
+    public interface CallbackInterface {
         void onJokeLoaded(String joke);
     }
 
