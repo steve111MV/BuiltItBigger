@@ -30,7 +30,7 @@ public class AsynctaskUnitTest implements EndpointsAsyncTask.CallbackInterface {
     public void onJokeLoaded(String joke) {
 
         //Check that the Endpoint loads the joke
-        assertTrue( joke.equals(JokeTeller.getRandomJoke()) );
+        assertTrue( joke != null );
         mSignal.countDown();
     }
 
